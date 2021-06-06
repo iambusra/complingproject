@@ -16,7 +16,7 @@ We have a preliminary dataset from Google News, we also added Büşra's dataset 
 FRAMEWORK
 
 For the preprocessing of the data we used RegEx. We aim to use Naive Bayes or Logistic Regression and Sentiment Analysis for modelling and analysis in
-the process. We will use SentiTurkNet (http://research.sabanciuniv.edu/29556/1/2-sentiturknet-2015.pdf) as our polarity lexicon. 
+the process. We will use _Turkish-tr-NRC-VAD-Lexicon.txt_ (reference will be provided soon) as our Sentiment lexicon. 
 
 
 EVALUATION METHOD
@@ -25,3 +25,14 @@ Since we have a relatively small dataset, we will use:
 The dataset which is made of Büşra’s initial data and the news articles we scraped from the web as the train and validation data. 
 Then we will extract the news articles from the web pages which didn’t allow us to scrape data. We will manually annotate this data to set the gold standard. Then we will use it as the test data to see the performance of our classifier. 
 We will examine precision, recall and accuracy.
+
+
+WHAT WE NEED TO DO FURTHER is to find the matching lexical items in our lexicon for all words (including the morphologically complex ones) in our data.
+
+Then, we will move on to randomly separate our data so that we have different data sets for both training and testing phases.
+
+(we are confused if we should train the classifier based on sentiment values, i.e. the relevant features, and the categories (biased vs. neutral) that we provide it as part of the training OR do a logistic regression or some sort of a linear model to understand the effect of Sentiment values on determining the category of the article. We will need to talk about it and decide on it as soon as possible.)
+
+We will find sentiment values for the tokens in the training set that have a match in the lexicon and save them in a data frame.
+
+Later, we will analyze if sentiment values of gender-biased news articles differ in any dimension from the values of gender-neutral ones. Our prediction is that they will be different at least in one dimension. We will build a classifer to test this hypothesis and try to classify the articles in the test data based on sentiment values. Since we will have already categorized these two different news article types before the analysis, we will be able to measure the accuracy/precision of the classifier.
