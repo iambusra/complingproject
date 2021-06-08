@@ -15,7 +15,7 @@ We have a preliminary dataset from Google News, we also added Büşra's dataset 
 
 FRAMEWORK
 
-For the preprocessing of the data we used RegEx. We aim to use Naive Bayes or Logistic Regression and Sentiment Analysis for modelling and analysis in
+For the preprocessing of the data we used RegEx. We aim to use Naive Bayes in addition to the Sentiment Analysis for modelling and analysis in
 the process. We will use _Turkish-tr-NRC-VAD-Lexicon.txt_ (reference will be provided soon) as our Sentiment lexicon. 
 
 
@@ -27,12 +27,21 @@ Then we will extract the news articles from the web pages which didn’t allow u
 We will examine precision, recall and accuracy.
 
 
-WHAT WE NEED TO DO FURTHER is to find the matching lexical items in our lexicon for all words (including the morphologically complex ones) in our data.
+What we have done:
 
-Then, we will move on to randomly separate our data so that we have different data sets for both training and testing phases.
+Scrape news data from Twitter and Google News
+Clean the data
+Find the relevant Sentiment Values for the words which are present in the Lexicon
+Numerically code the news labels based on alphabetical order (Biased = 0, Neutral = 1)
+Create data frame with all the relevant information for our model
+Try out a mock model based on only Arousal Values and test it (using scikit)
 
-(we are confused if we should train the classifier based on sentiment values, i.e. the relevant features, and the categories (biased vs. neutral) that we provide it as part of the training OR do a logistic regression or some sort of a linear model to understand the effect of Sentiment values on determining the category of the article. We will need to talk about it and decide on it as soon as possible.)
+What we need to do now:
 
-We will find sentiment values for the tokens in the training set that have a match in the lexicon and save them in a data frame.
+Figure out a way to integrate all 3 semantic values as predictor.
+Figure out a way to split the data as test and training without losing any rows or columns (especially for for future qualitative analysis like seeing which news texts were correctly categorized based on their sentiment values)
+Evaluate the model in the end
+Proceed according to evaluation results
 
-Later, we will analyze if sentiment values of gender-biased news articles differ in any dimension from the values of gender-neutral ones. Our prediction is that they will be different at least in one dimension. We will build a classifer to test this hypothesis and try to classify the articles in the test data based on sentiment values. Since we will have already categorized these two different news article types before the analysis, we will be able to measure the accuracy/precision of the classifier.
+
+
