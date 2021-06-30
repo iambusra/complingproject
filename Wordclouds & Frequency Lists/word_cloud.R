@@ -12,6 +12,7 @@ library(wordcloud2)
 library(stopwords) 
 library(coreNLP)# nlp stuff
 library(tm) # removeNumbers()
+library(readxl)
 
 
 # Preprocessing Function
@@ -81,8 +82,9 @@ text_clean_3_score <- df %>%
 
 # Form a word cloud
 
-wordcloud_all <- wordcloud2(text_clean_all, size = 0.90)
+wordcloud_all <- wordcloud2(text_clean_all, size = 0.70)
 wordcloud_kadın <- wordcloud2(text_clean_kadın, size = 0.90)
-wordcloud_bayan <- wordcloud2(text_clean_bayan, size = 0.90)
-wordcloud_score_0 <- wordcloud2(text_clean_0_score, size = 0.90)
+wordcloud_bayan <- wordcloud2(text_clean_bayan, size = 0.70)
+wordcloud_score_0 <- wordcloud2(text_clean_0_score, size = 0.50)
 wordcloud_score_3 <- wordcloud2(text_clean_3_score, size = 0.90)
+
